@@ -11,7 +11,7 @@ export const elementToDataURI = async (
     elmStyle.width = `${size.width}px`;
     elmStyle.height = `${size.height}px`;
   }
-  const dataURL = await domtoimage.toSvg(elm, {
+  const dataURL = await domtoimage.toPng(elm, {
     width: size?.width,
     height: size?.height,
   });

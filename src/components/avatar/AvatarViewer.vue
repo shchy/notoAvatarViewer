@@ -40,7 +40,7 @@ export default defineComponent({
         width: 1280,
         height: 1280,
       });
-      downloadURI(datauri, "test.svg");
+      downloadURI(datauri, "test.png");
     };
     return {
       ordered,
