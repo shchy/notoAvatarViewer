@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080px" height="1080px" viewBox="0 0 1080 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Glasses/ 13</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M13.2424158,30.6204112 C45.9833494,-15.8647873 141.088923,-5.73761896 162.362486,36.28207 C183.636049,78.3017589 106.646699,137 59.9164578,137 C13.1862163,137 -19.4985177,77.1056097 13.2424158,30.6204112 Z" id="path-1"></path>
+        <path d="M13.2424158,30.6204112 C45.9833494,-15.8647873 141.088923,-5.73761896 162.362486,36.28207 C183.636049,78.3017589 106.646699,137 59.9164578,137 C13.1862163,137 -19.4985177,77.1056097 13.2424158,30.6204112 Z" id="path-3"></path>
+    </defs>
+    <g id="Glasses/-13" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(293.311103, 468.000000)">
+            <line x1="301.654646" y1="14.5294118" x2="391.06641" y2="14.5294118" id="Path" stroke="#000000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></line>
+            <path d="M299.688897,49.7647059 C314.818308,38.5882353 329.818308,33 344.688897,33 C359.559485,33 374.363407,38.5882353 389.100661,49.7647059" id="Path" stroke="#000000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <line x1="216.688897" y1="47" x2="1" y2="90.3393577" id="Path" stroke="#000000" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" transform="translate(108.844448, 68.669679) rotate(1.361411) translate(-108.844448, -68.669679) "></line>
+            <g id="Rectangle" transform="translate(163.688897, 0.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#0C0C0C" xlink:href="#path-1"></use>
+                <rect fill="#FFFFFF" mask="url(#mask-2)" transform="translate(133.000000, 69.000000) rotate(-300.000000) translate(-133.000000, -69.000000) " x="28" y="55" width="210" height="28"></rect>
+            </g>
+            <g id="Rectangle" transform="translate(358.688897, 0.000000)">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <use id="Mask" fill="#0C0C0C" transform="translate(83.000000, 68.500000) scale(-1, 1) translate(-83.000000, -68.500000) " xlink:href="#path-3"></use>
+                <rect fill="#FFFFFF" mask="url(#mask-4)" transform="translate(128.000000, 69.000000) rotate(-300.000000) translate(-128.000000, -69.000000) " x="23" y="55" width="210" height="28"></rect>
+            </g>
+            <path d="M176.931312,30.6204112 C209.672246,-15.8647873 304.777819,-5.73761896 326.051382,36.28207 C347.324945,78.3017589 270.335596,137 223.605354,137 C176.875113,137 144.190379,77.1056097 176.931312,30.6204112 Z" id="Path" stroke="#000000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M371.931312,30.6204112 C404.672246,-15.8647873 499.777819,-5.73761896 521.051382,36.28207 C542.324945,78.3017589 465.335596,137 418.605354,137 C371.875113,137 339.190379,77.1056097 371.931312,30.6204112 Z" id="Path" stroke="#000000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" transform="translate(441.688897, 68.500000) scale(-1, 1) translate(-441.688897, -68.500000) "></path>
+        </g>
+    </g>
+</svg>

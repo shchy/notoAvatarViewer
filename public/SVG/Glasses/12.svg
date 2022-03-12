@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080px" height="1080px" viewBox="0 0 1080 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Glasses/ 12</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8.243588,0.846980976 L319,0.846980976 C323.418278,0.846980976 327,4.42870298 327,8.84698098 L327,60.3354728 C327,62.7612819 325.899315,65.0560661 324.007489,66.5744676 C273.425795,107.171914 233.241134,127.470637 203.453507,127.470637 C172.393305,127.470637 180.60251,72.4893126 121.912821,67.4910104 C63.2231312,62.4927082 79.3556485,122.472335 41.0460251,119.140133 C16.4440153,117.000231 2.8449741,80.3330197 0.248901344,9.13849979 C0.0879015596,4.72315805 3.53672424,1.01329755 7.95206586,0.852294315 C8.04919956,0.848752383 8.14638974,0.846980976 8.243588,0.846980976 Z" id="path-1"></path>
+    </defs>
+    <g id="Glasses/-12" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(545.000000, 567.000000) scale(-1, 1) translate(-545.000000, -567.000000) translate(284.000000, 484.000000)">
+            <path d="M16.48658,0 L351,0 C359.836556,-1.623249e-15 367,7.163444 367,16 L367,91.7057332 C367,96.7138827 364.655019,101.433118 360.663478,104.457877 C306.521896,145.485959 262.987303,166 230.059701,166 C178.755945,166 186.238806,104.342857 139.679104,104.342857 C93.119403,104.342857 115.029851,166 58.8843284,156.514286 C23.6357519,150.559084 4.17455507,103.945301 0.500737787,16.6729375 C0.129085867,7.84420188 6.98490465,0.385812204 15.8136401,0.0141577688 C16.0378293,0.00472030046 16.2621923,4.12193617e-17 16.48658,0 Z" id="Path" stroke="#000000" stroke-width="12" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+            <g transform="translate(22.000000, 17.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#000000" xlink:href="#path-1"></use>
+                <line x1="112.192469" y1="-8.25806452" x2="2.73640167" y2="79.827957" id="Path" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></line>
+                <line x1="87.5648536" y1="-22.0215054" x2="-21.8912134" y2="66.0645161" id="Path" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></line>
+            </g>
+            <polygon id="Path" stroke="#000000" stroke-width="12" fill="#000000" stroke-linecap="round" stroke-linejoin="round" points="367 8.03658142 522 39 522 82.8753642 367 68"></polygon>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080px" height="1080px" viewBox="0 0 1080 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Accessories/ 14</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Accessories/-14" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(328.000000, 659.000000) scale(-1, 1) rotate(-315.000000) translate(-328.000000, -659.000000) translate(304.000000, 606.000000)">
+            <path d="M24,-4 C16.2680135,-4 9.2680135,-0.865993249 4.20101013,4.20101013 C-0.865993249,9.2680135 -4,16.2680135 -4,24 C-4,31.7319865 -0.865993249,38.7319865 4.20101013,43.7989899 C8.37801931,47.9759991 13.8686177,50.839419 20,51.7164446 L20,97.2 C20,100.624165 21.3879173,103.724165 23.6318759,105.968124 C25.8758346,108.212083 28.9758346,109.6 32.4,109.6 C35.8241654,109.6 38.9241654,108.212083 41.1681241,105.968124 C43.4120827,103.724165 44.8,100.624165 44.8,97.2 L44.8006502,42.7442446 C49.2758166,37.7813543 52,31.2087965 52,24 C52,16.2680135 48.8659932,9.2680135 43.7989899,4.20101013 C38.7319865,-0.865993249 31.7319865,-4 24,-4 Z" id="Path" stroke="#000000" stroke-width="8" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+            <rect id="Rectangle" fill="#000000" x="21.6" y="4.8" width="8" height="16" rx="4"></rect>
+        </g>
+    </g>
+</svg>
