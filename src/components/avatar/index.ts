@@ -7,9 +7,13 @@ export const elementToDataURI = async (
   const elmStyle = elm.style;
   const orgWidth = elmStyle.width;
   const orgHeight = elmStyle.height;
+  const orgMaxWidth = elmStyle.maxWidth;
+  const orgMaxHeight = elmStyle.maxHeight;
   if (size !== undefined) {
     elmStyle.width = `${size.width}px`;
     elmStyle.height = `${size.height}px`;
+    elmStyle.maxWidth = `${size.width}px`;
+    elmStyle.maxHeight = `${size.height}px`;
   }
   const dataURL = await domtoimage.toPng(elm, {
     width: size?.width,
@@ -17,6 +21,8 @@ export const elementToDataURI = async (
   });
   elmStyle.width = orgWidth;
   elmStyle.height = orgHeight;
+  elmStyle.maxWidth = orgMaxWidth;
+  elmStyle.maxHeight = orgMaxHeight;
   return dataURL;
 };
 

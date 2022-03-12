@@ -32,10 +32,10 @@ export default defineComponent({
         (x.category == "face" && x.id == 10) ||
         (x.category == "eyes" && x.id == 5) ||
         (x.category == "eyebrows" && x.id == 10) ||
-        (x.category == "mouth" && x.id == 18) ||
+        (x.category == "mouth" && x.id == 2) ||
         (x.category == "nose" && x.id == 3) ||
         (x.category == "details" && x.id == 0) ||
-        (x.category == "beard" && x.id == 0) ||
+        (x.category == "beard" && x.id == 3) ||
         (x.category == "glasses" && x.id == 0) ||
         (x.category == "hairstyle" && x.id == 6) ||
         (x.category == "accessories" && x.id == 0) ||

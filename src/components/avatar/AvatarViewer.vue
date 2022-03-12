@@ -59,7 +59,7 @@ export default defineComponent({
   display: grid;
   .parts {
     overflow: hidden;
-    // width: 100%;
+    width: 100%;
     height: 100%;
     object-fit: scale-down;
     grid-row: 1;
