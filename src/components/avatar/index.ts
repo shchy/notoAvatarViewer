@@ -36,23 +36,55 @@ export const downloadURI = (uri: string, name: string): null => {
   return null;
 };
 
+export function update_query_parameters(
+  key: string,
+  val: string | number | boolean
+) {
+  const uri = window.location.href
+    .replace(
+      RegExp("([?&]" + key + "(?=[=&#]|$)[^#&]*|(?=#|$))"),
+      "&" + key + "=" + encodeURIComponent(val)
+    )
+    .replace(/^([^?&]+)&/, "$1?");
+
+  if (window.history.pushState) {
+    window.history.pushState({ path: uri }, "", uri);
+  } else {
+    window.location.href = uri;
+  }
+}
+
+export enum NotoCategory {
+  Face = "face",
+  Eyes = "eyes",
+  Eyebrows = "eyebrows",
+  Mouth = "mouth",
+  Nose = "nose",
+  Details = "details",
+  Beard = "beard",
+  Glasses = "glasses",
+  Hairstyle = "hairstyle",
+  Accessories = "accessories",
+  Festival = "festival",
+}
+
 export interface NotoItem {
-  category: string;
+  category: NotoCategory;
   id: number;
 }
 export const notoAvatarProps = {
   categorys: [
-    { category: "face", count: 16 },
-    { category: "eyes", count: 14 },
-    { category: "eyebrows", count: 16 },
-    { category: "mouth", count: 20 },
-    { category: "nose", count: 14 },
-    { category: "details", count: 14 },
-    { category: "beard", count: 17 },
-    { category: "glasses", count: 15 },
-    { category: "hairstyle", count: 59 },
-    { category: "accessories", count: 16 },
-    { category: "festival", count: 11 },
+    { category: NotoCategory.Face, count: 16 },
+    { category: NotoCategory.Eyes, count: 14 },
+    { category: NotoCategory.Eyebrows, count: 16 },
+    { category: NotoCategory.Mouth, count: 20 },
+    { category: NotoCategory.Nose, count: 14 },
+    { category: NotoCategory.Details, count: 14 },
+    { category: NotoCategory.Beard, count: 17 },
+    { category: NotoCategory.Glasses, count: 15 },
+    { category: NotoCategory.Hairstyle, count: 59 },
+    { category: NotoCategory.Accessories, count: 16 },
+    { category: NotoCategory.Festival, count: 11 },
   ],
 };
 export const assets: NotoItem[] = notoAvatarProps.categorys.flatMap((x) =>
@@ -75,26 +107,3 @@ export const orderByCategory = (x: NotoItem, y: NotoItem): number => {
   const yi = categorys.indexOf(y.category);
   return xi - yi;
 };
-
-// キー "accessories"
-// 値 {category: "accessories", id: 0}
-// キー "beard"
-// 値 {category: "beard", id: 0}
-// キー "details"
-// 値 {category: "details", id: 0}
-// キー "eyebrows"
-// 値 {category: "eyebrows", id: 10}
-// キー "eyes"
-// 値 {category: "eyes", id: 5}
-// キー "face"
-// 値 {category: "face", id: 10}
-// キー "festival"
-// 値 {category: "festival", id: 0}
-// キー "glasses"
-// 値 {category: "glasses", id: 0}
-// キー "hairstyle"
-// 値 {category: "hairstyle", id: 6}
-// キー "mouth"
-// 値 {category: "mouth", id: 18}
-// キー "nose"
-// 値 {category: "nose", id: 3}

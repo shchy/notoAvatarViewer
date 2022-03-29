@@ -32,8 +32,6 @@ export default defineComponent({
   name: "SelectAssets",
   emits: ["select-avatar"],
   setup(props, { emit }) {
-    console.log(props);
-
     const state = reactive({
       selectedCategory: categorys[0],
     });

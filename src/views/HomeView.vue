@@ -9,7 +9,13 @@
 import { defineComponent, reactive } from "vue";
 import SelectAssets from "@/components/avatar/SelectAssets.vue";
 import AvatarViewer from "@/components/avatar/AvatarViewer.vue";
-import { NotoItem, assets } from "@/components/avatar";
+import {
+  NotoItem,
+  assets,
+  NotoCategory,
+  update_query_parameters,
+} from "@/components/avatar";
+import { useRoute } from "vue-router";
 
 export default defineComponent({
   name: "HomeView",
@@ -17,32 +23,22 @@ export default defineComponent({
     SelectAssets,
     AvatarViewer,
   },
-
   setup() {
     const state = reactive({
       avatar: new Map(),
     });
     const selectedAvatar = (x: NotoItem) => {
       state.avatar.set(x.category, x);
+      update_query_parameters(x.category, x.id);
     };
 
-    // 適当に生成
-    const test = assets.filter(
-      (x) =>
-        (x.category == "face" && x.id == 10) ||
-        (x.category == "eyes" && x.id == 5) ||
-        (x.category == "eyebrows" && x.id == 10) ||
-        (x.category == "mouth" && x.id == 2) ||
-        (x.category == "nose" && x.id == 3) ||
-        (x.category == "details" && x.id == 0) ||
-        (x.category == "beard" && x.id == 3) ||
-        (x.category == "glasses" && x.id == 0) ||
-        (x.category == "hairstyle" && x.id == 6) ||
-        (x.category == "accessories" && x.id == 0) ||
-        (x.category == "festival" && x.id == 0)
-    );
-    for (const item of test) {
-      state.avatar.set(item.category, item);
+    // クエリパラメータから初期化
+    const route = useRoute();
+    for (const category of Object.values(NotoCategory)) {
+      const id = Number.parseInt((route.query[category] as string) ?? "0");
+      const part = assets.find((x) => x.category == category && x.id == id);
+      if (part === undefined) continue;
+      selectedAvatar(part);
     }
 
     return {
