@@ -1,0 +1,96 @@
+image: alpine
+
+stages:
+  - build
+  - deploy
+
+variables:
+  # CONTAINER_BACK_CACHE: $CI_REGISTRY_IMAGE/back:cache
+  # CONTAINER_BACK_IMAGE: $CI_REGISTRY_IMAGE/back:$CI_COMMIT_SHORT_SHA
+  CONTAINER_FRONT_CACHE: $CI_REGISTRY_IMAGE/front:cache
+  CONTAINER_FRONT_IMAGE: $CI_REGISTRY_IMAGE/front:$CI_COMMIT_SHORT_SHA
+
+before_script:
+  # docker廃止のため代わりにimgをインストール
+  # apk add imgで済むけどCMDが消失するバグがあるので修正済みコードからビルドして使う
+  - |
+    apk add --update --no-cache \
+    vim \
+    git \
+    make \
+    musl-dev \
+    go \
+    curl \
+    bash \
+    linux-headers \
+    pkgconfig \
+    libseccomp-dev \
+    go-bindata \
+    libseccomp-static \
+    libc6-compat 
+  - set -ex && apk --no-cache add sudo
+  - export GOPATH=/root/go
+  - export PATH=${GOPATH}/bin:/usr/local/go/bin:$PATH
+  - export GOBIN=$GOROOT/bin
+  - mkdir -p ${GOPATH}/src ${GOPATH}/bin
+  - export GO111MODULE=on
+  - go version
+  - mkdir -p $GOPATH/src/github.com/genuinetools
+  - git clone https://github.com/genuinetools/img $GOPATH/src/github.com/genuinetools/img
+  - cd $GOPATH/src/github.com/genuinetools/img
+  - make #BUILDTAGS="seccomp noembed"
+  - sudo make install
+  - cp /root/go/bin/img $CI_PROJECT_DIR/img
+  - cd $CI_PROJECT_DIR
+
+ # gitlab-registryの証明書を取り込み
+  - apk add --no-cache ca-certificates && rm -rf /var/cache/apk/*
+  - mkdir -p /usr/local/share/ca-certificates/extra
+  - cp /etc/ssl/certs/registry.crt /usr/local/share/ca-certificates/extra/registry.crt
+  - update-ca-certificates
+
+  # docker レジストリにログイン
+  - cp $CI_PROJECT_DIR/img /usr/local/bin/img
+  - apk --no-cache add wget #img
+  - echo "$CI_DEPLOY_PASSWORD" | img login --username "$CI_DEPLOY_USER" $CI_REGISTRY --password-stdin
+  # # kubectlのインストール
+  # - apk add --no-cache --virtual=build-deps wget
+  # - wget https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/linux/amd64/kubectl
+  # - mv kubectl /usr/local/bin/kubectl
+  # - chmod +x /usr/local/bin/kubectl
+  
+# build_back:
+#   stage: build
+#   script:
+#     - cp ./config ./backend/config
+#     - cd backend
+#     - | 
+#       img build -t $CONTAINER_BACK_IMAGE \
+#         --cache-from type=registry,ref=$CONTAINER_BACK_CACHE \
+#         --cache-to type=registry,ref=$CONTAINER_BACK_CACHE,mode=max \
+#         .
+#     - img push $CONTAINER_BACK_IMAGE
+
+build_front:
+  stage: build
+  script:
+    # - cd frontend
+    - | 
+      img build -t $CONTAINER_FRONT_IMAGE \
+        --cache-from type=registry,ref=$CONTAINER_FRONT_CACHE \
+        --cache-to type=registry,ref=$CONTAINER_FRONT_CACHE,mode=max \
+        .
+    - img push $CONTAINER_FRONT_IMAGE
+
+# deploy:
+#   stage: deploy
+#   script:
+#     # k8sへdeploy
+#     - mkdir ~/.kube
+#     - cp ./config ~/.kube/config
+#     - sed -i "s|LATEST_IMG_BACK|$CONTAINER_BACK_IMAGE|" ./deploy.yml
+#     - sed -i "s|LATEST_IMG_FRONT|$CONTAINER_FRONT_IMAGE|" ./deploy.yml
+#     - kubectl apply -f ./deploy.yml
+#     - kubectl apply -f ./ingress.yml
+#   only:
+#     - master
